@@ -1,0 +1,25 @@
+body{
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: darkcyan;
+  padding-right: 25px;
+  padding-left: 25px;
+}
+.container{
+  display: flex;
+  justify-content: flex-end;
+}
+aside{
+  background-color:darkslategray;
+  width: 25vw;
+  height: 100vh;
+}
+.nav-toggle{
+  background-color: transparent;
+  border: none;
+}
