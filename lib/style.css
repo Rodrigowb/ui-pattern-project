@@ -49,6 +49,7 @@ h2{
   height: 100vh;
   background-color: black;
   transition: 0.5s;
+  box-shadow: 2px 2px 2px black;
 }
 /* Use js to apply the active menu */
 .nav.active{
@@ -59,6 +60,7 @@ h2{
   height: 100vh;
   background-color: black;
   transition: 0.5s;
+  box-shadow: 2px 2px 2px black;
 }
 .nav ul{
   position: absolute;
