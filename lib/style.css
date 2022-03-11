@@ -1,25 +1,100 @@
+/* General style to generate hamburger menu*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* General style for fonts */
 body{
-  background-color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  font-family: Roboto, sans-serif;
 }
-header{
+/* Styling H tags */
+h1{
+  text-transform: uppercase;
+  text-decoration: underline;
+  letter-spacing: 2px;
+  word-spacing: 4px;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 3em;
+}
+h2{
+  text-align: center;
+  margin-top: 5px;
+}
+/* Styling the hamburger menu */
+.menu-open{
+  position:fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.menu-open span{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: darkcyan;
-  padding-right: 25px;
-  padding-left: 25px;
+  width: 40px;
+  height: 4px;
+  background: black;
+  margin-top: 5px;
+
 }
-.container{
-  display: flex;
-  justify-content: flex-end;
-}
-aside{
-  background-color:darkslategray;
-  width: 25vw;
+/* Hidden with the left equal to the reverse of the width (-25%) */
+.nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
   height: 100vh;
+  background-color: black;
+  border-right: 1px solid black;
 }
-.nav-toggle{
-  background-color: transparent;
-  border: none;
+/* Use js to apply the active menu */
+.nav.active{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100vh;
+  background-color: black;
+  border-right: 1px solid black;
+}
+.nav ul{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+}
+.nav ul li{
+  margin-top: 2rem;
+  font-size: 2.5em;
+  color: whitesmoke;
+}
+.menu-close{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.menu-close span{
+  display: flex;
+  width: 30px;
+  height: 2px;
+  background: whitesmoke;
+}
+.menu-close :nth-child(1){
+  position: absolute;
+  left: -2px;
+  top: 7px;
+  transform: rotate(45deg);
+}
+.menu-close :nth-child(2){
+  position: absolute;
+  left: -2px;
+  top: 7px;
+  transform: rotate(135deg);
 }
