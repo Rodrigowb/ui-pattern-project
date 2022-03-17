@@ -7,7 +7,7 @@ E-mail: <boaventurarodrigo@yahoo.com.br> <br />
 Git hub profile: <https://github.com/Rodrigowb> <br />
 Linkedin profile: <https://www.linkedin.com/in/rodrigowanderleyboaventura> <br />
 # About the project
-This project aims to combine HTML, CSS and JS to build a functional page based in the hamburger menu UI pattern. Also, all the website content is provided by an interaction with the financial API of Yahoo Finance.
+This project aims to combine HTML, CSS and JS to build a functional page based in the hamburger menu UI pattern. Also, all the website content is provided by an interaction with the financial API of Yahoo Financels.
 # Files description
 ## index.html
 Provides the main structure of the front-end of the project, including text, buttons and cards.
@@ -15,6 +15,8 @@ Provides the main structure of the front-end of the project, including text, but
 Provides the stylesheet of the project, colors, menus, font-style and alignment.
 ## interaction.js
 Provides the interaction file of the project, reponsible to add functionality to the page. The main function of the Java Script in this project is call the Yahoo Finance API to get real time information and get the hamburger menu working.
+# About the Yahoo Finance API
+The Yahoo Finance API is a real time, low latency information provider for the stock market , crypto currency, and currency exchange. 
 # Technologies used
 1. Command line
 2. Git
