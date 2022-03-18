@@ -7,7 +7,7 @@ E-mail: <boaventurarodrigo@yahoo.com.br> <br />
 Git hub profile: <https://github.com/Rodrigowb> <br />
 Linkedin profile: <https://www.linkedin.com/in/rodrigowanderleyboaventura> <br />
 # About the project
-This project aims to combine HTML, CSS and JS to build a functional page based in the hamburger menu UI pattern. Also, all the website content is provided by an interaction with the financial API of Yahoo Financels.
+This project aims to combine HTML, CSS and JS to build a functional page based in the hamburger menu UI pattern. Also, all the website content is provided by an interaction with the financial API, Yahoo Finance.
 # Deployment
 <https://rodrigowb.github.io/ui-pattern-project/>
 # Files description
