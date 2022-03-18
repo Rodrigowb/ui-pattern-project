@@ -48,6 +48,12 @@ function setColor(number, domNode) {
   }
 }
 
+// Round number function
+function roundNumber(number, places) {
+  let roundedNum = (Math.round(number * 100) / 100).toFixed(places);
+  return roundedNum;
+}
+
 // Event handler: getting requests from the API
 function updateIndexes(event) {
   let elementId = (event.target.dataset.id);
@@ -58,9 +64,9 @@ function updateIndexes(event) {
       let obj = data.quoteResponse.result[elementId];
       asset.innerHTML = obj.shortName;
       time.innerHTML = currentDate();
-      dif.innerHTML = obj.regularMarketChange;
-      percDif.innerHTML = `${obj.regularMarketChangePercent}%`;
-      price.innerHTML = obj.regularMarketPrice;
+      dif.innerHTML = roundNumber(obj.regularMarketChange, 3);
+      percDif.innerHTML = `${roundNumber(obj.regularMarketChangePercent, 3)}%`;
+      price.innerHTML = roundNumber(obj.regularMarketPrice, 0);
       // Set the color
       setColor(parseFloat(obj.regularMarketChangePercent), document.querySelector('.price'))
     })
@@ -81,9 +87,9 @@ function landingPageInfo() {
       // Get the elements to change it
       asset.innerHTML = obj.shortName;
       time.innerHTML = currentDate();
-      dif.innerHTML = obj.regularMarketChange;
-      percDif.innerHTML = `${obj.regularMarketChangePercent}%`;
-      price.innerHTML = obj.regularMarketPrice;
+      dif.innerHTML = roundNumber(obj.regularMarketChange, 3);
+      percDif.innerHTML = `${roundNumber(obj.regularMarketChangePercent, 3)}%`;
+      price.innerHTML = roundNumber(obj.regularMarketPrice, 0);
       // Set the color
       setColor(parseFloat(obj.regularMarketChangePercent), document.querySelector('.price'))
     })
