@@ -155,16 +155,16 @@ h2{
 }
 @media screen and (max-width: 570px){
   h1{
-    font-size: 1.5em;;
+    font-size: 1.2em;;
   }
   h2{
-    font-size: 0.5em;
+    font-size: 0.8em;
   }
   .nav ul li{
     font-size: 1em;
   }
   .container{
-    width: 250px;
+    width: 210px;
     height: 400px;
     background: whitesmoke;
   }
@@ -174,5 +174,11 @@ h2{
   }
   .time{
     font-size: 0.5em;
+  }
+  .asset{
+    font-size: 1em;
+  }
+  .nav.active{
+    width: 55%;
   }
 }
