@@ -106,7 +106,7 @@ h2{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  flex-direction: column;
+  flex-direction: column; 
   width: 400px;
   height: 430px;
   background: whitesmoke;
@@ -166,7 +166,7 @@ h2{
   .container{
     width: 210px;
     height: 400px;
-    background: whitesmoke;
+    margin: 0px auto;
   }
   .bottom-info{
     font-size: 3.5em;

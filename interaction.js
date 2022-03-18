@@ -35,8 +35,7 @@ function currentDate() {
 const configuration = {
   method: 'GET',
   headers: {
-    // 'x-api-key': 'wb62oKe7T7X1lmjqff5a8s4WorS5h5cazj2TlhZh'
-    'x-api-key:': 'Hkr0X7gUyr3KTpJLRHPc782cKjaN2Yqh56Hwo4qJ'
+    'x-api-key': 'wb62oKe7T7X1lmjqff5a8s4WorS5h5cazj2TlhZh'
   }
 }
 
@@ -95,4 +94,4 @@ function landingPageInfo() {
       setColor(parseFloat(obj.regularMarketChangePercent), document.querySelector('.price'))
     })
 }
-// landingPageInfo();
+landingPageInfo();
