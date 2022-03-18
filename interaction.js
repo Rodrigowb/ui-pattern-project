@@ -1,3 +1,10 @@
+// Acessing the DOM nodes
+let asset = document.querySelector('.asset')
+let time = document.querySelector('.time')
+let dif = document.querySelector('.dif')
+let percDif = document.querySelector('.perc-diff')
+let price = document.querySelector('.price')
+
 // Setting the hamburguer menu
 // Event handler
 function menuTog(event) {
@@ -9,7 +16,6 @@ function menuTog(event) {
 const menuOpen = document.querySelector('.menu-open');
 const menuClose = document.querySelector('.menu-close');
 const navLink = document.querySelectorAll('.nav-link')
-
 menuOpen.addEventListener('click', menuTog);
 menuClose.addEventListener('click', menuTog);
 navLink.forEach((link) => {
@@ -24,6 +30,7 @@ function currentDate() {
   var dateTime = date + ' ' + time;
   return dateTime
 }
+
 // Setting the yahoo finance API request
 const configuration = {
   method: 'GET',
@@ -41,7 +48,7 @@ function setColor(number, domNode) {
   }
 }
 
-// Event handler
+// Event handler: getting requests from the API
 function updateIndexes(event) {
   let elementId = (event.target.dataset.id);
   event.preventDefault();
@@ -49,19 +56,17 @@ function updateIndexes(event) {
     .then(response => response.json())
     .then(data => {
       let obj = data.quoteResponse.result[elementId];
-      // Get the elements to change it
-      document.querySelector('.asset').innerHTML = obj.shortName;
-      document.querySelector('.time').innerHTML = currentDate();
-      document.querySelector('.dif').innerHTML = obj.regularMarketChange;
-      document.querySelector('.perc-diff').innerHTML = `${obj.regularMarketChangePercent}%`;
-      document.querySelector('.price').innerHTML = obj.regularMarketPrice;
+      asset.innerHTML = obj.shortName;
+      time.innerHTML = currentDate();
+      dif.innerHTML = obj.regularMarketChange;
+      percDif.innerHTML = `${obj.regularMarketChangePercent}%`;
+      price.innerHTML = obj.regularMarketPrice;
       // Set the color
       setColor(parseFloat(obj.regularMarketChangePercent), document.querySelector('.price'))
     })
 }
-
+// Event listener
 const navButtons = document.querySelectorAll(".nav-link");
-
 for (let i = 0; i < navButtons.length; i++) {
   navButtons[i].addEventListener('click', updateIndexes);
 }
@@ -74,17 +79,13 @@ function landingPageInfo() {
     .then(data => {
       let obj = data.quoteResponse.result[elementId];
       // Get the elements to change it
-      document.querySelector('.asset').innerHTML = obj.shortName;
-      document.querySelector('.time').innerHTML = currentDate();
-      document.querySelector('.dif').innerHTML = obj.regularMarketChange;
-      document.querySelector('.perc-diff').innerHTML = `${obj.regularMarketChangePercent}%`;
-      document.querySelector('.price').innerHTML = obj.regularMarketPrice;
+      asset.innerHTML = obj.shortName;
+      time.innerHTML = currentDate();
+      dif.innerHTML = obj.regularMarketChange;
+      percDif.innerHTML = `${obj.regularMarketChangePercent}%`;
+      price.innerHTML = obj.regularMarketPrice;
       // Set the color
-      if (parseFloat(obj.regularMarketChangePercent) < 0) {
-        document.querySelector('.price').style.color = "red";
-      } else {
-        document.querySelector('.price').style.color = "green";
-      }
+      setColor(parseFloat(obj.regularMarketChangePercent), document.querySelector('.price'))
     })
 }
 landingPageInfo();
