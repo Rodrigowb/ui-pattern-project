@@ -1,4 +1,3 @@
-console.log('Im live!')
 // Setting the hamburguer menu
 // Event handler
 function menuTog(event) {
@@ -26,7 +25,6 @@ function currentDate() {
   return dateTime
 }
 // Setting the yahoo finance API request
-// Setting the API key
 const configuration = {
   method: 'GET',
   headers: {
@@ -35,7 +33,7 @@ const configuration = {
 }
 
 // Event handler
-function updateDolar(event) {
+function updateIndexes(event) {
   let elementId = (event.target.dataset.id);
   event.preventDefault();
   fetch('https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=BRL%3DX%2C%5EIXIC%2C%5EGSPC%2C%5EBVSP%2C%5EVIX%2CBTC-USD', configuration)
@@ -60,5 +58,28 @@ function updateDolar(event) {
 const navButtons = document.querySelectorAll(".nav-link");
 
 for (let i = 0; i < navButtons.length; i++) {
-  navButtons[i].addEventListener('click', updateDolar);
+  navButtons[i].addEventListener('click', updateIndexes);
 }
+
+// Setting the landing page info (S&P 500 by default)
+function landingPageInfo() {
+  let elementId = 0;
+  fetch('https://yfapi.net/v6/finance/quote?region=US&lang=en&symbols=%5EGSPC', configuration)
+    .then(response => response.json())
+    .then(data => {
+      let obj = data.quoteResponse.result[elementId];
+      // Get the elements to change it
+      document.querySelector('.asset').innerHTML = obj.shortName;
+      document.querySelector('.time').innerHTML = currentDate();
+      document.querySelector('.dif').innerHTML = obj.regularMarketChange;
+      document.querySelector('.perc-diff').innerHTML = `${obj.regularMarketChangePercent}%`;
+      document.querySelector('.price').innerHTML = obj.regularMarketPrice;
+      // Set the color
+      if (parseFloat(obj.regularMarketChangePercent) < 0) {
+        document.querySelector('.price').style.color = "red";
+      } else {
+        document.querySelector('.price').style.color = "green";
+      }
+    })
+}
+landingPageInfo();
