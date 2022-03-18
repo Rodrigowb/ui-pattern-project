@@ -32,6 +32,15 @@ const configuration = {
   }
 }
 
+// Config the color of the text
+function setColor(number, domNode) {
+  if (number < 0) {
+    domNode.style.color = "red";
+  } else {
+    domNode.style.color = "green"
+  }
+}
+
 // Event handler
 function updateIndexes(event) {
   let elementId = (event.target.dataset.id);
@@ -47,11 +56,7 @@ function updateIndexes(event) {
       document.querySelector('.perc-diff').innerHTML = `${obj.regularMarketChangePercent}%`;
       document.querySelector('.price').innerHTML = obj.regularMarketPrice;
       // Set the color
-      if (parseFloat(obj.regularMarketChangePercent) < 0) {
-        document.querySelector('.price').style.color = "red";
-      } else {
-        document.querySelector('.price').style.color = "green";
-      }
+      setColor(parseFloat(obj.regularMarketChangePercent), document.querySelector('.price'))
     })
 }
 
